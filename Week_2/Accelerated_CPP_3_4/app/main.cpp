@@ -1,8 +1,8 @@
 #include <iostream>
-#include <lib.hpp>
+#include <vector>
 
 int main()
 {
-    dummy();
+    std::cout << "Test" << std::endl;
     return 0;
 }
