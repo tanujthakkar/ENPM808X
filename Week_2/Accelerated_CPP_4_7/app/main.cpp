@@ -10,9 +10,9 @@
 
  * @section DESCRIPTION
  *
- * This program reads an input stream and counts the repetitions for each word
- * in the recorded stream, as well as the total number of words in the input
- * stream.
+ * This program reads an numbers as input and stores them in a vector.
+ * It then returns an average of all of the numbers in the vector.
+ *
  */
 
 #include <iostream>
