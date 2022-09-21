@@ -22,8 +22,18 @@
 #include <unordered_map>
 
 
-void processInputStream(std::istream& in, std::vector<std::string>& words, std::unordered_map<std::string, int>& frequencyCounts) {
-
+/**
+ * @brief Reads input stream and stores words to a vector. It uses an unordered_map
+ *        to simulataneously store the frequency of each word. 
+ * 
+ * @param in is the input stream
+ * @param words is the vector to store each string (word)
+ * @param frequencyCounts is an unordered_map to store the frequency of each word
+ * 
+ * @return void
+ */
+void processInputStream(std::istream& in, std::vector<std::string>& words,
+                        std::unordered_map<std::string, int>& frequencyCounts) {
     std::string word;
     while (in >> word) {
         words.push_back(word);
@@ -31,21 +41,22 @@ void processInputStream(std::istream& in, std::vector<std::string>& words, std::
     }
 }
 
-
-int main()
-{   
-    std::vector<std::string> words;
+int main() {
+    std::vector<std::string> words;  // Vector to store words from input stream
     std::unordered_map<std::string, int> frequencyCounts;
 
-    std::cout << "Enter your desired text input, use Ctrl+D to end" << std::endl;
+    // Prompt the user to enter input stream
+    std::cout << "Enter your desired text input, use Ctrl+D to end"
+              << std::endl;
     processInputStream(std::cin, words, frequencyCounts);
 
-    int totalWordCount = 0;
-    for (size_t i = 0; i < words.size(); ++i) {
-        std::cout << words[i] << "\t" << frequencyCounts[words[i]] << std::endl;
-        totalWordCount += frequencyCounts[words[i]];
+    int totalWordCount = 0;  // Int to store total word count
+    // Printing all the words with their frequency
+    for (auto itr : frequencyCounts) {
+        std::cout << itr.first << "\t" << itr.second << std::endl;
+        totalWordCount += itr.second;
     }
     std::cout << "Total Words: " << totalWordCount << std::endl;
-    
+
     return 0;
 }
