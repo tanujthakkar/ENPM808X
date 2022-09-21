@@ -33,10 +33,11 @@ int main() {
 
     // For each student, retrieve and process data
     for (size_t i = 0; i < totalStudents; ++i) {
-        std::string studentName;
-        double midtermGrade;
-        double finalsGrade;
-        double studentGrade;
+        std::string studentName;  // Local string for student name
+        double assignmentGradeAvg = 0;  // Local double for assignment grade
+        double midtermGrade;  // Local double for midterm grade
+        double finalsGrade;  // Local double for finals grade
+        double studentGrade;  // Local double for final student grade
 
         // Prompt user to input student name
         std::cout << "Enter the name of the student: ";
@@ -45,7 +46,6 @@ int main() {
 
         // Prompt user to input three assignment grades
         std::cout << "Enter three assignment grades: " << std::endl;
-        double assignmentGradeAvg = 0;
         for (size_t j = 0; j < 3; ++j) {
             double assignmentGrade;
             std::cout << (j+1) << ": ";
