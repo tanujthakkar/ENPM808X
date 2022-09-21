@@ -19,15 +19,15 @@
 #include <istream>
 #include <ostream>
 #include <vector>
-#include <unordered_set>
+#include <unordered_map>
 
 
-void processInputStream(std::istream& in, std::vector<std::string>& words, std::unordered_set<std::string>& frequencyCounts) {
+void processInputStream(std::istream& in, std::vector<std::string>& words, std::unordered_map<std::string, int>& frequencyCounts) {
 
     std::string word;
     while (in >> word) {
         words.push_back(word);
-        frequencyCounts.insert(word);
+        frequencyCounts[word]++;
     }
 }
 
@@ -35,15 +35,15 @@ void processInputStream(std::istream& in, std::vector<std::string>& words, std::
 int main()
 {   
     std::vector<std::string> words;
-    std::unordered_set<std::string> frequencyCounts;
+    std::unordered_map<std::string, int> frequencyCounts;
 
     std::cout << "Enter your desired text input, use Ctrl+D to end" << std::endl;
     processInputStream(std::cin, words, frequencyCounts);
 
     int totalWordCount = 0;
     for (size_t i = 0; i < words.size(); ++i) {
-        std::cout << words[i] << "\t" << frequencyCounts.count(words[i]) << std::endl;
-        totalWordCount += frequencyCounts.count(words[i]);
+        std::cout << words[i] << "\t" << frequencyCounts[words[i]] << std::endl;
+        totalWordCount += frequencyCounts[words[i]];
     }
     std::cout << "Total Words: " << totalWordCount << std::endl;
     
