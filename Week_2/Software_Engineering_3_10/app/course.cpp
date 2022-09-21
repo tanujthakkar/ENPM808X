@@ -23,13 +23,11 @@
 Course::Course(const std::string& courseName, const int& totalStudents) {
   name_ = courseName;
   totalStudents_ = totalStudents;
-  std::vector<int> studentNos_(totalStudents_);
-  std::vector<double> studentGrades_(totalStudents_);
 
   // Assigning incrementing numbers to all students
   for (int i = 0; i < totalStudents_; ++i) {
-    studentNos_[i] = i + 1;
-    studentGrades_[i] = 0.0;
+    studentNos_.push_back(i + 1);
+    studentGrades_.push_back(0.0);
   }
 }
 
@@ -55,5 +53,5 @@ void Course::displayCourseSummary() {
   for (int i = 0; i < totalStudents_; ++i) {
     std::cout << studentNos_[i] << "\t" << studentGrades_[i] << std::endl;
   }
-  // std::cout << "Course Grade Average: " << calcCourseAvg() << std::endl;
+  std::cout << "Course Grade Average: " << calcCourseAvg() << std::endl;
 }
