@@ -31,11 +31,12 @@ int main() {
 
   Course crs(courseName, totalStudents);
 
-//   std::cout << crs.getStudentGrade(1);
-  // crs.updateStudentGrade(1, 4);
-  // crs.updateStudentGrade(2, 3.5);
-  // crs.updateStudentGrade(3, 2);
+  crs.updateStudentGrade(1, 4);
+  crs.updateStudentGrade(2, 3.5);
+  crs.updateStudentGrade(3, 3.2);
+  crs.updateStudentGrade(4, 3.0);
+  crs.updateStudentGrade(5, 3.8);
 
-  // crs.displayCourseSummary();
+  crs.displayCourseSummary();
   return 0;
 }
